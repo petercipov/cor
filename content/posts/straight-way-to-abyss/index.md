@@ -3,7 +3,7 @@ title: "Straight way to abyss: Premature optimization"
 date: 2013-10-31
 description: ""
 summary: ""
-tags: ["premature optimisation", "anti patterns"]
+tags: ["premature optimisation", "anti patterns", "assumptions"]
 ---
 
 It happened some time ago. Some of our servers went crazy. Traffic was in normal, but out of the blank CPU was 95%. It seemed to be a nutshell of a day. I looked for the culprit in stack traces with my colleagues and found this place in code

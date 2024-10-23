@@ -6,8 +6,71 @@
     <description>Recent content on Cycles Of Reinvention</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 06 Nov 2013 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Nov 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hacker&#39;s Diet</title>
+      <link>//localhost:1313/posts/hackers-diet/</link>
+      <pubDate>Thu, 23 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/hackers-diet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>I have deleted my Facebook account, what now</title>
+      <link>//localhost:1313/posts/i-have-deleted-my-facebook-account/</link>
+      <pubDate>Fri, 08 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/i-have-deleted-my-facebook-account/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Traces - sane logging for asynchronous code</title>
+      <link>//localhost:1313/posts/traces-sane-logging-in-async/</link>
+      <pubDate>Thu, 17 Dec 2015 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/traces-sane-logging-in-async/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Microservices - Does monolith need optimalization ?</title>
+      <link>//localhost:1313/posts/microservices-does-monolith-need-optimalization/</link>
+      <pubDate>Mon, 20 Apr 2015 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/microservices-does-monolith-need-optimalization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Design Pattern: Screwdriver</title>
+      <link>//localhost:1313/posts/design_pattern_screwdriver/</link>
+      <pubDate>Thu, 27 Nov 2014 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/design_pattern_screwdriver/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Out of the Tar Pit - The Good Parts</title>
+      <link>//localhost:1313/posts/out-of-the-tar-pit/</link>
+      <pubDate>Mon, 31 Mar 2014 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/out-of-the-tar-pit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Comet: trendy and hairy</title>
+      <link>//localhost:1313/posts/comet/</link>
+      <pubDate>Fri, 27 Dec 2013 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/comet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NO (not only) Servlet</title>
+      <link>//localhost:1313/posts/not_only_servlet/</link>
+      <pubDate>Fri, 27 Dec 2013 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/not_only_servlet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Religious issue: The best programming language</title>
+      <link>//localhost:1313/posts/religious-issue/</link>
+      <pubDate>Sun, 17 Nov 2013 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/religious-issue/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Lesson learned: Do your job instead of looking for the best way.</title>
       <link>//localhost:1313/posts/lesson-learned/</link>

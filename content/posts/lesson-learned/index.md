@@ -24,7 +24,7 @@ A things you know
 2. things you know that you don't know
 3. things you don't know that you don't know
 
-</igure>
+<figure>
   <img src="things_you_know.png" >
   <figcaption>
     This picture displays normal order of knowledge we possess.
@@ -32,5 +32,3 @@ A things you know
 </figure>
 
 Do not try to figure out the future. We are bad at this. Focus what is here, what is now. Base your actions on actual metrics and make decision based on them. Reasoning with "It is good to", "I think", "I hope" is a bad practise. You can easily stuck in blind corner of programming religion without creating any business value. Lets face it, business value is what actually generates money that we earn.
-
-If you face the same problem, you can inspire from this guy as I did:
