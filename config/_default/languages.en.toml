@@ -1,0 +1,24 @@
+languageCode = "en"
+languageName = "English"
+languageDirection = "ltr"
+weight = 1
+
+title = "Cycles Of Reinvention"
+# copyright = "Copy, _right?_ :thinking_face:"
+
+[params]
+  dateFormat = "2 January 2006"
+
+  # mainSections = ["section1", "section2"]
+  # description = "My awesome website"
+
+[params.author]
+   name = "Peter Cipov"
+   image = "img/author.jpg"
+   headline = "I'm only human"
+   bio = "A little bit about you"
+   links = [
+     { github = "https://github.com/petercipov" },
+     { linkedin = "https://linkedin.com/in/petercipov" },
+     { x-twitter = "https://x.com/Peter_Cipov" },
+     ]
