@@ -3,22 +3,54 @@ languageName = "English"
 languageDirection = "ltr"
 weight = 1
 
-title = "Cycles Of Reinvention"
+title = "Peter Cipov"
 # copyright = "Copy, _right?_ :thinking_face:"
 
 [params]
   dateFormat = "2 January 2006"
 
-  # mainSections = ["section1", "section2"]
-  # description = "My awesome website"
-
 [params.author]
-   name = "Peter Cipov"
-   image = "img/author.jpg"
-   headline = "I'm only human"
-   bio = "A little bit about you"
-   links = [
-     { github = "https://github.com/petercipov" },
-     { linkedin = "https://linkedin.com/in/petercipov" },
-     { x-twitter = "https://x.com/Peter_Cipov" },
-     ]
+  name = "Peter Cipov"
+  image = "img/author.jpg"
+  headline = "Staff Software Engineer"
+  bio = "Personal website of Peter Cipov"
+  links = [
+    { github = "https://github.com/petercipov" },
+    { linkedin = "https://www.linkedin.com/in/petercipov/" },
+    { x-twitter = "https://x.com/peter_cipov" },
+  #   { mastodon = "https://fosstodon.org/@statsandr" }
+  #   { email = "mailto:hello@your_domain.com" },
+  #   { link = "https://link-to-some-website.com/" },
+  #   { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
+  #   { apple = "https://www.apple.com" },
+  #   { blogger = "https://username.blogspot.com/" },
+  #   { codepen = "https://codepen.io/username" },
+  #   { dev = "https://dev.to/username" },
+  #   { discord = "https://discord.gg/invitecode" },
+  #   { dribbble = "https://dribbble.com/username" },
+  #   { facebook = "https://facebook.com/username" },
+  #   { flickr = "https://www.flickr.com/photos/username/" },
+  #   { foursquare = "https://foursquare.com/username" },
+  #   { gitlab = "https://gitlab.com/username" },
+  #   { google = "https://www.google.com/" },
+  #   { hashnode = "https://username.hashnode.dev" },
+  #   { instagram = "https://instagram.com/username" },
+  #   { keybase = "https://keybase.io/username" },
+  #   { kickstarter = "https://www.kickstarter.com/profile/username" },
+  #   { lastfm = "https://lastfm.com/user/username" },
+  #   { microsoft = "https://www.microsoft.com/" },
+  #   { patreon = "https://www.patreon.com/username" },
+  #   { pinterest = "https://pinterest.com/username" },
+  #   { reddit = "https://reddit.com/user/username" },
+  #   { slack = "https://workspace.url/team/userid" },
+  #   { snapchat = "https://snapchat.com/add/username" },
+  #   { soundcloud = "https://soundcloud.com/username" },
+  #   { stack-overflow = "https://stackoverflow.com/users/userid/username" },
+  #   { steam = "https://steamcommunity.com/profiles/userid" },
+  #   { telegram = "https://t.me/username" },
+  #   { tiktok = "https://tiktok.com/@username" },
+  #   { tumblr = "https://username.tumblr.com" },
+  #   { twitch = "https://twitch.tv/username" },
+  #   { whatsapp = "https://wa.me/phone-number" },
+  #   { youtube = "https://youtube.com/username" },
+  ]
