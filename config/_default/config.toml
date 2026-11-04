@@ -6,18 +6,20 @@
 defaultContentLanguage = "en"
 
 enableRobotsTXT = true
-paginate = 10
 summaryLength = 0
 
+[taxonomies]
+  tag = "tags"
+
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS"]
 
 [markup.highlight]
       codeFences = true
       guessSyntax = true
       hl_Lines = ""
       lineNoStart = 1
-      lineNos = true
+      lineNos = false
       lineNumbersInTable = true
       tabWidth = 4
       noClasses = false
