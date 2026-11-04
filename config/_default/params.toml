@@ -3,8 +3,8 @@ author = "Peter Cipov"
 images = ["img/author.jpg"]
 
 # Appearance
-theme = "auto"
-colorPalette = "default"
+theme = "dark"
+colorPalette = "terminal"
 hideHeader = false
 
 # Home page
@@ -14,10 +14,10 @@ homeCollection = "posts"
 # Lists
 paginationSize = 100
 listSummaries = false
-listDateFormat = "2 Jan 2006"
+listDateFormat = "2006-01-02"
 
 # Posts
-singleDateFormat = "2 January 2006"
+singleDateFormat = "2006-01-02"
 readTime = true
 showTags = true
 

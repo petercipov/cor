@@ -1,0 +1,16 @@
+/* Dark terminal palette, used whatever the visitor's system setting is. */
+:root {
+  --accent: rgb(240, 191, 79);
+
+  --content-primary-light: rgb(227, 224, 213);
+  --content-secondary-light: rgb(163, 158, 143);
+  --background-light: rgb(30, 31, 26);
+  --code-background-light: rgb(38, 39, 32);
+  --code-border-light: rgb(68, 69, 58);
+
+  --content-primary-dark: rgb(227, 224, 213);
+  --content-secondary-dark: rgb(163, 158, 143);
+  --background-dark: rgb(30, 31, 26);
+  --code-background-dark: rgb(38, 39, 32);
+  --code-border-dark: rgb(68, 69, 58);
+}
