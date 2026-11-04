@@ -7,32 +7,33 @@ summary: ""
 tags: ["soft skills", "people", "engineering", "assumptions"]
 ---
 
-Programming is not entirely about coding, design and architecture. A great deal of it is also about people we are working with. I often realize that I struggle more with ego than with reason, especially when it comes to senior developers with "their ways".
+Programming is not only about code, design and architecture. A great deal of it is about the people we work with. I often find that I struggle more with ego than with reason, especially when dealing with senior developers who have "their ways".
 
-One of the common problems you can encounter is the problem of a screwdriver. You have to attach the shelf with hex screws, but you do not own a proper screwdriver. What would you do? Would you use an improper one? No, you would go to the shop and obtain a proper one. It is logical.
+One common problem is what I call the problem of the screwdriver. Say you need to mount a shelf with hex screws, but you do not own the right screwdriver. What do you do? Would you use the wrong one? Of course not. You would go to the shop and buy the right one. It is only logical.
 
-But often you have to deal with something different. You have a bunch of programmers that do not see why you need this different solution when the "improper" screwdriver worked just fine yesterday. You are trying to explain why, but it is not accepted, for many odd reasons, like "I don't believe it will work better". Of course there are many reasonable [problems with new technology](https://medium.com/netflix-techblog/node-js-in-flames-ddd073803aa4), you have to mitigate risk beforehand. But sometimes the problem is not in technology or business but in people themselves, more precisely in their egos.
-You silently say jeeesh, and fight your struggle because you know where it would end otherwise. You would cripple a screw. And any future change will be nearly impossible.
+In software, things often go differently. You face a group of programmers who cannot see why you need a different solution when the "wrong" screwdriver worked just fine yesterday. You try to explain, but your arguments are rejected for all sorts of odd reasons, like "I don't believe it will work better". Of course, new technology can bring [real problems](https://medium.com/netflix-techblog/node-js-in-flames-ddd073803aa4), and you have to mitigate those risks up front. But sometimes the problem lies neither in the technology nor in the business. It lies in people, or more precisely in their egos.
 
-If you like your job, you would definitely avoid this even though you would become the black sheep. Your main motivation is the product itself. You know that any change to a dilettante design would be costly and drastic, therefore it is impossible to get rid of it completely. Making change hard is the guaranteed path of doom.
+You quietly sigh and keep fighting, because you know how this would end otherwise: with a ruined screw, and any future change becoming nearly impossible.
 
-> The only constant thing in programming is change.
+If you care about your job, you will avoid this outcome, even if it makes you the black sheep. What motivates you is the product itself. You know that changing an amateurish design later would be drastic and costly, so you would probably never fully get rid of it. Making change hard is a guaranteed path to doom.
 
-I have encountered this "back-pressure" numerous times with TDD, but the absolute peak of resistance was reached when I refused to use an "in-house framework" that was someone else's toy, developed for years. I had become that bad colleague who has taken someone's toy. Something mind-blowing for me at that time.
+> The only constant in programming is change.
 
-And I have seen this nearly everywhere where something (framework, library, tooling) was developed for some time. The lack of will to change favourite tools to proper ones, fitting the current situation better.
+I have run into this kind of back-pressure many times with TDD. The peak of the resistance came when I refused to use an "in-house framework", someone else's toy that had been in development for years. Suddenly I was the bad colleague who had taken someone's toy away. At the time, this completely blew my mind.
+
+I have seen the same thing wherever a framework, library or tool has been around for a while. People are unwilling to replace their favourite tools with ones that better fit the current situation.
 
 > For several years I was the lone C programmer in that company. I thought that everybody should be programming in C. But I could not convince any of my brethren to start programming in C. Does anybody have that problem? With something like test driven development or agile practices? The most common questions that people would ask me when I do lecture on TDD, is how can I convince anybody else to do this. And the answer to this question is you can not. [Robert Martin](https://www.infoq.com/presentations/clojure-c)
 
-Somehow I could not understand why such smart people are able to make such bad decisions. The journey for this answer has taken me far from my domain of expertise, which is programming, to psychology, namely to the [Dunning-Kruger effect](https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect).
+For a long time I could not understand why such smart people make such bad decisions. The search for an answer took me far from programming, my area of expertise, and into psychology, specifically to the [Dunning-Kruger effect](https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect).
 
-Their initial test study was the case of bank robber McArthur Wheeler:
+The authors' research was inspired by the case of a bank robber named McArthur Wheeler:
 
 > In 1995, McArthur Wheeler walked into two Pittsburgh banks and robbed them in broad daylight, with no visible attempt at disguise. He was arrested later that night, less than an hour after videotapes of him taken from surveillance cameras were broadcast on the 11 o'clock news. When police later showed him the tapes, Mr. Wheeler stared in incredulity. "But I wore the juice", he mumbled. Apparently, Mr. Wheeler was under the impression that rubbing one's face with lemon juice rendered it invisible to videotape cameras.
 
-The experiment was done on Cornell University undergraduate students. They were tested on various topics like humor, logical reasoning and English grammar. Then they had to write an estimate of their abilities: how successful they were compared to the others. They did not have a clue about the results of the others. It was only their guess.
+The experiment was carried out on undergraduate students at Cornell University. They were tested on topics such as humor, logical reasoning and English grammar, and then had to estimate how well they had done compared to the others. They knew nothing about the other students' results, so this was purely their own guess.
 
-In their famous paper [Unskilled and unaware of it](./paper.pdf)  they argued that:
+In their famous paper [Unskilled and unaware of it](./paper.pdf), they argued that:
 
 > People are incompetent in the strategies they adopt to achieve success and satisfaction, they suffer a dual burden: Not only do they reach erroneous conclusions and make unfortunate choices, but their incompetence robs them of the ability to realize it.
 
@@ -43,19 +44,31 @@ In their famous paper [Unskilled and unaware of it](./paper.pdf)  they argued th
   </figcaption>
 </figure>
 
-* Students with the lowest score (bottom quartile) overestimated their results
-* Students with the highest score (top quartile) underestimated their results
-* Estimates of top quartile students have improved when they were confronted with the work of the others. (They checked tests of other participants.)
-* Students from bottom quartile have problems realizing their incompetence even after the confrontation with the results of the others.
+* Students with the lowest scores (bottom quartile) overestimated their results.
+* Students with the highest scores (top quartile) underestimated their results.
+* Top-quartile students improved their estimates after seeing the work of other participants.
+* Bottom-quartile students struggled to recognize their incompetence, even after seeing the results of others.
 
 > The competent do not know they are competent and the incompetent do not realize their incompetence.
 
-And sometimes this is the exact situation you are facing. Sometimes you work with people with superior skills but they do not use them fully because they underestimate themselves. I have heard many times we are not big enough, we cannot compete with giants like Google or Facebook. You somehow understand them but then you realize that big teams do not work and any superior feature you are seeing these days was made by small teams, same as yours. If you have skillful people why not use their full potential, take the risky way and go into uncharted waters? Nevertheless, this gives you the ability to stretch your capability to a point beyond competition.
+Sometimes this is exactly the situation you are facing. You may work with highly skilled people who do not use their abilities fully because they underestimate themselves.
 
-> People tend to do what they are used to, programmers are no exception to this.
+I have often heard that we are not big enough, that we cannot compete with giants like Google or Facebook. You can understand the feeling, but big teams do not work particularly well, and the great features you see these days are usually built by small teams just like yours. If you have skilled people, why not use their full potential, take the risk and head into uncharted waters? That is what lets you stretch your abilities beyond the competition.
 
-Many times you encounter colleagues with zero motivation. They are smart, full of potential but they do not believe in the project. This aspect is underestimated. We programmers like to focus on the technological aspects of the project and underestimate everything else. They may seem inferior to the logical problems we love to solve. I used to think that algorithms are the hardest part of the software development process, but actually they are not when you are working in a team. Small things like motivation are absolutely essential when it comes to innovation. Motivation gives you the simple answer why to actually bother and learn new things and not use something that has worked "just fine" yesterday.
+> People tend to do what they are used to, and programmers are no exception.
+
+You will also often meet colleagues with no motivation at all. They are smart and full of potential, but they do not believe in the project. This is an underrated problem.
+
+As programmers, we like to focus on the technical side of a project and underestimate everything else, because it seems less important than the logical problems we love to solve. I used to think that algorithms were the hardest part of software development, but that stops being true once you work in a team.
+
+Seemingly small things like motivation are essential for innovation. Motivation is the simple reason to bother learning something new, rather than sticking with what worked "just fine" yesterday.
 
 > It is lethal when you use tools of yesterday today to invent something that will be successful tomorrow.
 
-You have to focus on the idea itself and not distract yourself by figuring out how to bend inappropriate tools, it may be your favourite library, framework, programming language, operating system, database system, cloud service. I have seen a transition of file storage from OpenStack Swift to Mongo GridFS, because we found out that Swift reads from disks all the time to checksum stored files and guarantee file consistency. This has led to disk failures more often than we would like to anticipate. Hardware is really costly and I did not mention delays due to logistics - someone has to buy disks and install them. Grid seems fine from the beginning, no nonstop disk checksums, until it starts to lose data due to software bugs. Try to explain this to your customer :). Then you realize that cloud storage providers like Amazon offer you storage as a service with no additional costs than monthly fee. You realize that storing data in big quantities is not as easy task as it seemed at the beginning. Storing data is not your core business (this business has already been dominated). From this point of view migration to Amazon is very attractive. But it depends on your business, you will overpay if you are storing a few GB and storing half of the internet is more expensive than the custom solution. Therefore you should know your tools perfectly and also explore other possibilities. Maybe your problems are already solved and you are reinventing the wheel.
+You have to focus on the idea itself, not on how to bend the wrong tools to fit it. That applies even to your favourite library, framework, programming language, operating system, database or cloud service.
+
+I once saw a team move its file storage from OpenStack Swift to Mongo GridFS. They had found out that Swift constantly reads from disk to checksum stored files and guarantee consistency. Disks were failing more often than anyone expected. Hardware is expensive, and that is before counting the logistical delays of someone having to buy and install new disks. GridFS seems fine at first, with no constant checksumming, until software bugs start losing your data. Try explaining that to your customers :).
+
+Then you realize that cloud providers like Amazon offer storage as a service for nothing more than a monthly fee. You also realize that storing large amounts of data is harder than it first seemed. It is not your core business either, and others already dominate it. From this point of view, migrating to Amazon looks very attractive. It still depends on your business: you will overpay if you store only a few GB, and storing half of the internet costs more than a custom solution.
+
+So know your tools thoroughly, but keep exploring other options as well. Your problems may already be solved, and you may just be reinventing the wheel.

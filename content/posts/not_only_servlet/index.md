@@ -7,8 +7,9 @@ summary: ""
 tags: ["web", "transport", "java", "servlet", "rewrite", "premature optimisation", "anti patterns", "assumptions"]
 ---
 
-The main addition of Java Servlet 3.0 spec was the introduction of Comet techniques. You can handle long requests without blocking. You could have done this before but you had to become platform specific. You depended on a servlet container specific API. Servlet 3.0 brought a standard API, so this is no issue anymore. What is the issue is the state of those containers. I can only judge two of them that I have been heavily using in the past. To be more precise, Tomcat and Jetty.
-Servlet 3.0 was a big change. Now out of the blue the synchronous request model was changed and the Servlet 3.0 change had to be transferred to the new code-base without a global rewrite of the current code. The result was turmoil. I will demonstrate it on my case with Tomcat.
+The main addition in the Java Servlet 3.0 specification was support for Comet techniques, which let you handle long requests without blocking. This was possible before, but only through container-specific APIs that tied you to a platform. Servlet 3.0 solved that with a standard API. The real issue now is the state of the containers themselves. I can only judge the two I have used heavily in the past: Tomcat and Jetty.
+
+Servlet 3.0 was a big change. The synchronous request model suddenly changed, and the new behaviour had to fit into existing codebases without a global rewrite. The result was turmoil, as I will show using my own experience with Tomcat.
 
 ```java
 public class AsyncLongRunningServlet extends HttpServlet {
@@ -40,40 +41,42 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 }
 ```
 
-This is a typical scheme of an asynchronous servlet, you can find it in every demo example:
+This is the typical structure of an asynchronous servlet, as found in every demo:
 
-1. You make the request asynchronous by calling startAsync
+1. You make the request asynchronous by calling startAsync.
 2. You register a listener for various state changes.
-3. You set the request timeout
-4. You store it to some global list, executor, whatever your business logic requires. This is some kind of waiting list, where requests wait for some event (e.g.: a message was sent and it is propagated to clients in case of chat application)
-5. You should not make any long operations here like waiting etc. You just return. The method ends, the thread is returned to the pool but the socket is still open.
+3. You set the request timeout.
+4. You store the context in a global list, an executor or wherever your business logic requires. It acts as a kind of waiting list where requests wait for an event, such as a chat message that needs to be propagated to clients.
+5. You avoid long operations such as waiting and simply return. The method ends and the thread goes back to the pool, but the socket stays open.
 
-It seems easy, simplistic, but it hides some weak points that are not visible at first sight.
+It looks easy, even simplistic, but it hides some weak points that are not visible at first sight.
 
-I was in charge of implementing a [Pub-Sub](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) feature in a product. So part of the application was a JSON-RPC like API, with a thread per request model, and the second one was a notifier. Servlet 3.0 API is well documented, so the first implementation was done quickly. But out of the blue responses became corrupted. Sometimes you got a response that contained a JSON response with a tiny part of some other JSON or a part of image. I spent a lot of time debugging with no result. This mistake was unfortunately occurring in production with some amount of traffic that I could not locally reproduce. In the end I wrote to Tomcat forums and I got this response:
+I was in charge of implementing a [Pub-Sub](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) feature in a product. One part of the application was a JSON-RPC-like API using a thread-per-request model, and the other was a notifier.
+
+The Servlet 3.0 API is well documented, so the first implementation came together quickly. Then, out of the blue, responses became corrupted. Sometimes a JSON response would contain a tiny part of another JSON document or a fragment of an image. I spent a lot of time debugging without any result. To make matters worse, it happened in production at a level of traffic I could not reproduce locally. In the end I wrote to the Tomcat forums and received this reply:
 
     Did I miss some critical lesson about flushing async responses? 
     HttpServletRequest and HttpServletResponse objects 
     a) are not thread-safe 
     b) are cached and reused for subsequent incoming requests. 
 
-In fact, Tomcat (and [Jetty as well](http://jetty.4.x6.nabble.com/Jetty-request-recycling-td4959197.html)) recycle request and response objects. They replace only internals. This is done to avoid unnecessary garbage collection. But on the other hand this breaks the isolation of requests and tons of [unpredictable bugs](https://wiki.apache.org/tomcat/FAQ/KnownIssues#ImageIOIssues) can occur. Life without isolation is really painful, because if you make a bug in one place it corrupts non-deterministically other places that are fine.
+In fact, Tomcat (and [Jetty as well](http://jetty.4.x6.nabble.com/Jetty-request-recycling-td4959197.html)) recycles request and response objects, replacing only their internals, to avoid unnecessary garbage collection. The downside is that this breaks the isolation between requests, and tons of [unpredictable bugs](https://wiki.apache.org/tomcat/FAQ/KnownIssues#ImageIOIssues) can follow. Life without isolation is really painful: a bug in one place can non-deterministically corrupt other places that are perfectly fine.
 
-From a feature implementer's point of view, point 4 brings problems with isolation. You can forget to properly clean the structure. Yes, you make a bug. It happens, but finding it is a pain - it is non-deterministic. From my point of view servlet containers are not safe enough. All code that is used for multithreaded programming should have as much immutables as possible. It makes code more readable and simpler. And certainly they should NOT recycle requests without your direct intent.
+For someone implementing a feature, step 4 is where isolation problems appear. If you forget to clean up the structure properly, you have a bug. That happens, but finding it is a pain because it is non-deterministic. In my view, servlet containers are not safe enough. Multithreaded code should use as many immutable objects as possible, which makes it simpler and more readable. And containers certainly should NOT recycle requests unless you explicitly ask them to.
 
-So out of frustration I started to dig into the source code. I wanted to debug it and with luck patch it. No luck here. Sources are overcomplicated due to long maintenance without rewrite and they are full of fuzzy bits like [this](http://grepcode.com/file/repository.springsource.com/org.apache.coyote/com.springsource.org.apache.coyote/7.0.26/org/apache/tomcat/util/net/NioEndpoint.java#1205):
+Out of frustration, I started digging into the source code, hoping to debug it and, with luck, patch it. No such luck. After years of maintenance without a rewrite, the sources are overcomplicated and full of fuzzy bits like [this](http://grepcode.com/file/repository.springsource.com/org.apache.coyote/com.springsource.org.apache.coyote/7.0.26/org/apache/tomcat/util/net/NioEndpoint.java#1205):
 
 ```java
  sk.attach(attachment);//cant remember why this is here
 ```
 
-The codebase is improving over time. Jetty was completely rewritten in version 9, so places like this are less common. You do not find "can't remember why" places in Tomcat 8 NIO connector implementation. But the main problem, the request recycling is still present in both web containers.
+The codebases are improving over time. Jetty was completely rewritten in version 9, so places like this are less common, and you will not find any "can't remember why" comments in Tomcat 8's NIO connector. The main problem, however, remains in both containers: request recycling.
 
-This all brings me to the ultimate question:
+All of this brings me to the ultimate question:
 
 ## Do you really need servlet container?
-Do you need all the fancy servlet features like hot deploy, WAR class-loader isolation, life cycle? Is it not your case, just an HTTP service? Tomcat / Jetty are heavily used, but do you need all of their power and abstraction? They were precisely designed to fulfill multiple demands. I am just asking whether these cases are yours. If not, why not just use "plain old embedded HTTP"? Why use servlets at all?
+Do you need all the fancy servlet features, like hot deployment, WAR class-loader isolation and life cycle management? Or do you just need an HTTP service? Tomcat and Jetty are widely used, but do you need all their power and abstraction? They were designed to meet many different demands, and I am simply asking whether those demands are yours. If not, why not use plain old embedded HTTP? Why use servlets at all?
 
-There are a bunch of other possibilities that were written from scratch for non-blocking communication and they are stable (Netty or Vert.x).
+There are many other stable options written from scratch for non-blocking communication, such as Netty and Vert.x.
 
-If you can choose technology I would recommend you to avoid a Servlet container for comet applications until you really need one (you can clearly answer the question: why is it actually helpful?). If you cannot, be prepared to solve tons of problems of too blurry abstraction and caching. And as we know caching is hard.
+If you are free to choose your technology, I recommend avoiding a servlet container for comet applications until you really need one. You should be able to clearly explain why it helps. If you cannot avoid it, be prepared for many problems caused by leaky abstractions and caching. And as we know, caching is hard.
