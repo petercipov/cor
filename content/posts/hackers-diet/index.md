@@ -2,6 +2,7 @@
 title: "Hacker's Diet"
 date: 2023-11-23
 description: "I was over 130 kg and lost 50 kg by eating once a day on a low-carb diet. How I did it, what went wrong before, and how I kept it off."
+featureAlt: "Painting of steam trains in a station filled with blue haze."
 summary: ""
 tags: ["diet", "lifestyle"]
 ---

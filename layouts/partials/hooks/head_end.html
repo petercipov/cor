@@ -1,0 +1,18 @@
+<meta name="theme-color" content="#1e1f1a">
+{{ template "_internal/twitter_cards.html" . }}
+{{- if .IsPage }}
+<script type="application/ld+json">
+{{ dict
+  "@context" "https://schema.org"
+  "@type" "Article"
+  "headline" .Title
+  "description" .Description
+  "url" .Permalink
+  "inLanguage" site.Language.LanguageCode
+  "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
+  "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+  "author" (dict "@type" "Person" "name" site.Params.author)
+  "keywords" .Params.tags
+  | jsonify | safeJS }}
+</script>
+{{- end }}

@@ -2,6 +2,7 @@
 title: "Out of the Tar Pit - The Good Parts"
 date: 2014-03-31
 description: "My notes on the paper Out of the Tar Pit: why shared state makes code hard to change, and when functional programming helps or gets in the way."
+featureAlt: "Impressionist painting of wind-blown yellow flowers against a grey-blue sky."
 summary: ""
 tags: ["functional", "state", "assumptions", "caching"]
 ---

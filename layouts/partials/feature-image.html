@@ -1,0 +1,22 @@
+{{/* Headline image from the post's feature.* file, cropped to 16:9 and served as WebP in a few sizes. */}}
+{{ with .Resources.GetMatch "feature*" }}
+  {{ $source := . }}
+  {{ $srcset := slice }}
+  {{ $largest := false }}
+  {{ $full := int (math.Min $source.Width 1200) }}
+  {{ range slice 480 800 $full | uniq | sort }}
+    {{ if le . $full }}
+      {{ $largest = $source.Fill (printf "%dx%d webp q80 Smart" . (div (mul . 9) 16)) }}
+      {{ $srcset = $srcset | append (printf "%s %dw" $largest.RelPermalink $largest.Width) }}
+    {{ end }}
+  {{ end }}
+  {{ with $largest }}
+  <img class="feature-image"
+    src="{{ .RelPermalink }}"
+    srcset="{{ delimit $srcset ", " }}"
+    sizes="(min-width: 800px) 730px, 100vw"
+    width="{{ .Width }}" height="{{ .Height }}"
+    alt="{{ $.Params.featureAlt }}"
+    fetchpriority="high" decoding="async">
+  {{ end }}
+{{ end }}

@@ -2,6 +2,7 @@
 title: "Lesson learned: Do your job instead of looking for the best way."
 date: 2013-11-06
 description: "I used to spend too long looking for the perfect tool. What I learned about solving the problem in front of you and getting things done."
+featureAlt: "Impressionist painting of sunlit yellow and green foliage."
 summary: ""
 tags: ["soft skills", "people", "engineering"]
 ---

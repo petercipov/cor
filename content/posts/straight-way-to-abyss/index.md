@@ -2,6 +2,7 @@
 title: "Straight way to abyss: Premature optimization"
 date: 2013-10-31
 description: "Our servers hit 95% CPU while traffic was normal. The cause was a hidden cache inside a JSON library, a classic case of premature optimization."
+featureAlt: "Red chalk study of a twisting human figure."
 summary: ""
 tags: ["premature optimisation", "anti patterns", "assumptions"]
 ---

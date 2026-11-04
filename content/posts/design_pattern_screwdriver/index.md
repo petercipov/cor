@@ -2,6 +2,7 @@
 title: "Design Pattern: Screwdriver"
 date: 2014-11-27
 description: "Why smart developers stick with the wrong tools, and what the Dunning-Kruger effect taught me about working with them."
+featureAlt: "White blueprint-style technical diagram on a black background."
 summary: ""
 tags: ["soft skills", "people", "engineering", "assumptions"]
 ---

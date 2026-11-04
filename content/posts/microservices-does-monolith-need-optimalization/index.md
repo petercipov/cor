@@ -2,6 +2,7 @@
 title: "Microservices - Does a monolith need optimization?"
 date: 2015-04-20
 description: "Microservices aren't always the answer. When a simple monolith is fine, when it starts to hurt, and how to split it into smaller services."
+featureAlt: "Painting of a bridge over a pond of water lilies."
 summary: ""
 tags: ["microservices", "assumptions"]
 ---
