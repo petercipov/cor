@@ -6,7 +6,7 @@ summary: ""
 tags: ["premature optimisation", "anti patterns", "assumptions"]
 ---
 
-It happened some time ago. Some of our servers went crazy. Traffic was in normal, but out of the blank CPU was 95%. It seemed to be a nutshell of a day. I looked for the culprit in stack traces with my colleagues and found this place in code
+It happened some time ago. Some of our servers went crazy. Traffic was normal, but out of the blue CPU was at 95%. It seemed to be a tough nut of a day. I looked for the culprit in stack traces with my colleagues and found this place in the code:
 
 ```java
 public JSONObject createJSON(String raw) {
@@ -14,11 +14,11 @@ public JSONObject createJSON(String raw) {
 }
 ```
 
-Creating simple JSON object caused the infinite loop?! WOW. JSONObject uses internally java.util.HashMap. After some googling, there was a single culprit candidate - race condition.
+Creating a simple JSON object caused the infinite loop?! WOW. JSONObject uses internally java.util.HashMap. After some googling, there was a single culprit candidate - race condition.
 
-But how it is posssible? There is no shared state. Object is created on the heap and it is not shared between threads. My mind was torn to two pieces. One was 100% sure that this is a race condition but the second one told me the oposite.
+But how is it possible? There is no shared state. Object is created on the heap and it is not shared between threads. My mind was torn into two pieces. One was 100% sure that this is a race condition but the second one told me the opposite.
 
-Out of cheer frustration we started to look to the sourcecodes of JSON library. And we found it !
+Out of sheer frustration we started to look at the source code of the JSON library. And we found it!
 
 ```java
 public class JSONObject {
@@ -49,6 +49,6 @@ public class JSONObject {
  }
 ```
 
-I stayed stunned for a while. A static map shared between all instances of JSONObject - the mind-blower of a day. This solved all our questions. This was the wanted critical section. We could not reveal it before because it happened only sometimes when HashMap internal threshold was reached (we did not use more than 100 JSON unique keys before :DD ). This bug was hopefully fixed in the library after half a year.
+I was stunned for a while. A static map shared between all instances of JSONObject - the mind-blower of the day. This solved all our questions. This was the wanted critical section. We could not reveal it before because it happened only sometimes when HashMap internal threshold was reached (we did not use more than 100 JSON unique keys before :DD ). This bug was fortunately fixed in the library after half a year.
 
-This is my personal encounter with anti-pattern "Premature optimization". It caused whole day of searching, patching source codes and redeploying server instances. A lot for a simple sunny day...
+This is my personal encounter with the anti-pattern "Premature optimization". It caused a whole day of searching, patching source codes and redeploying server instances. A lot for a simple sunny day...

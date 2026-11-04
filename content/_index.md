@@ -1,9 +1,9 @@
 ---
-title: "Peter Cipov personal website"
+title: "Peter Cipov's personal website"
 description: ""
 ---
-I love to dwell into limits of sytems, eighter computer or biological. I found experience of exploring its complexity humbling and eye opening when exploring its (our) limits. 
+I love to delve into the limits of systems, either computer or biological. I find the experience of exploring their complexity humbling and eye-opening, especially when exploring their (our) limits. 
 
 > Every system has a limit.
 
-This site is a collection of some of my experience, practises, I use daily at work or at home.
+This site is a collection of some of my experiences and the practices I use daily at work or at home.
