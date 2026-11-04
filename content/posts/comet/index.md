@@ -7,27 +7,26 @@ summary: ""
 tags: ["web", "transport"]
 ---
 
-Cometes is a Latin word with meaning "wearing long hair". Aristotle used it to describe stars with long hair: comets.
+"Cometes" is a Latin word meaning "wearing long hair". Aristotle used it to describe stars with long hair: comets.
 
-> Comet is a collection of techniques based on HTTP for processing long-living connections.
+> Comet is a collection of HTTP-based techniques for handling long-lived connections.
 
-Let’s introduce a typical comet application - chat. As a client, you post messages and expect responses as other users respond - in real time. You want to see whether a user is typing a message and their status (online, offline).
+Take a typical comet application: chat. You post messages and expect to see replies in real time as other users respond. You also want to know whether someone is typing and whether they are online or offline.
 
-Comet is responsible for transfer - from client to server and from server to clients. In most cases a single long-living connection is established to the server and when an event occurs a message is sent back and the connection is closed. The client then immediately establishes a new connection. This way it is possible to emulate client to client communication.
+Comet handles the transfer in both directions, from client to server and from server to clients. In most cases, the client opens a single long-lived connection to the server. When an event occurs, the server sends back a message and closes the connection, and the client immediately opens a new one. This makes it possible to emulate client-to-client communication.
 
-You can find comet inside many popular web applications.
+You can find comet in many popular web applications:
 
-* Gmail uses it for notifications, for chat.
-* Facebook for everything :).
-* Google Docs for its real-time multi-user editor.
+* Gmail uses it for notifications and chat.
+* Facebook uses it for everything :).
+* Google Docs uses it for its real-time multi-user editor.
 
 ## First attempts in 1996
 
-Comet is an old technology. It was first introduced in 1996 with Netscape.
-This was the first time when these two notions were introduced:
+Comet is not a new technology. Netscape introduced it in 1996, along with two new ideas:
 
-* server push - server is sending messages to clients
-* client pull - client is registering for messages
+* server push: the server sends messages to clients
+* client pull: the client registers to receive messages
 
 Example request:
 ```
@@ -51,9 +50,9 @@ Data for the second and last object.
 --ThisRandomString--
 ```
 
-The client pulls a request from the server for some image or HTML page. As the server pushes a response, the content of the DOM element is replaced with this new value (there can be delays between pushes).
+The client requests an image or an HTML page from the server. Each time the server pushes a response, the new value replaces the content of the DOM element. There can be delays between pushes.
 
-Support in browsers is tragic, only Firefox supports it fully.
+Browser support is tragic: only Firefox supports it fully.
 
 <figure>
   <img src="browser_support.png" alt="Logos of Firefox, Chrome, Safari, Opera and Internet Explorer, mostly greyed out." >
@@ -63,11 +62,10 @@ Support in browsers is tragic, only Firefox supports it fully.
 </figure>
 
 ### Why was Comet not globally adopted?
-Comet was introduced in 1996, but why was it not globally adopted?
-The answer is simple: there was no demand. Let’s realize what kinds of web applications were modern at that time. Simple HTML pages with a few images, linked with hyperlinks. The main use case for comet was to show image advertisements - it is really only a tiny bit of its potential.
+If comet was introduced in 1996, why did it not catch on everywhere? The answer is simple: there was no demand. Modern web applications of that time were plain HTML pages with a few images, connected by hyperlinks. The main use for comet was showing image advertisements, which is only a tiny fraction of its potential.
 
 ### Why is now a good time for real-time?
-What has changed since 1996? What is the reason for you to consider whether it is time for change? Web applications have to show more and more real-time changes, show graphs, implement chat, browser notifications, client to client communication. On the other hand you do not want to refresh the whole page again and again. This way a page can become unusable. The second reason is that browsers now globally support more comet methods and comet is much easier to implement.
+What has changed since 1996? First, web applications need to show more and more changes in real time: graphs, chat, browser notifications, client-to-client communication. Refreshing the whole page again and again would make them unusable. Second, browsers now widely support more comet methods, which makes comet much easier to implement.
 
 
 ## Transport: Polling
@@ -78,10 +76,10 @@ What has changed since 1996? What is the reason for you to consider whether it i
   </figcaption>
 </figure>
 
-It is not a real comet technique. (It does not have "long hair" :) ). It simulates real-time interaction by flooding the server with a sequence of requests. The server immediately responds with a message or with no message. However, the simplicity of the technique is paid for with a lot of disadvantages:
+Polling is not a real comet technique, because it does not have the "long hair" :). It simulates real-time interaction by flooding the server with requests, and the server immediately answers each one with or without a message. The technique is simple, but you pay for that simplicity with several disadvantages:
 
-* It does not scale - with more clients your server will lag. It is unusable even with a very low number of clients (you DDoS your own server ;) )
-* It is ineffective - every request has HTTP overhead. In most cases there is no message, nothing is transferred except HTTP headers. In small scale it is negligible, but in large instances it is an issue you should consider.
+* It does not scale. With more clients your server starts to lag, and it can become unusable even with very few of them (you DDoS your own server ;) ).
+* It is inefficient. Every request carries HTTP overhead, and most of the time there is no message, so nothing but HTTP headers gets transferred. At a small scale this is negligible, but at a large scale you need to consider it.
 
 ## Transport: Long-Polling
 
@@ -91,9 +89,9 @@ It is not a real comet technique. (It does not have "long hair" :) ). It simulat
     Long polling as data transport.
   </figcaption>
 </figure>
-The difference between polling and long polling is the "long hair". Clients pull for messages and the server pushes only when some message occurs or the connection times out. This is a more efficient way of doing comet and it is the most widespread technique, because it works on every browser even though fancier methods are available.
+The difference between polling and long polling is the "long hair". Clients still pull for messages, but the server responds only when a message arrives or the connection times out. This is a more efficient way of doing comet. It is also the most widespread technique, because it works in every browser, even when fancier methods are available.
 
-The number of clients is problematic. When your server holds a thread for every request until the response, the number of clients is limited by the maximum number of threads your server can handle simultaneously. This is the well-known [C10K problem](https://en.wikipedia.org/wiki/C10k_problem). Fortunately, this problem was overcome recently in Java with the [Servlet 3.0 JSR 315](https://jcp.org/aboutJava/communityprocess/final/jsr315/) specification, where the request thread can be returned to the pool to handle other requests but the socket is left open and waiting for an event. The response is written from an event thread.
+The problem is the number of clients. If your server holds a thread for every request until it responds, the number of clients is limited by the number of threads it can handle at once. This is the well-known [C10K problem](https://en.wikipedia.org/wiki/C10k_problem). Fortunately, Java recently overcame it with the [Servlet 3.0 JSR 315](https://jcp.org/aboutJava/communityprocess/final/jsr315/) specification. The request thread can now return to the pool and handle other requests while the socket stays open, waiting for an event. An event thread then writes the response.
 
 ## Transport: Streaming
 
@@ -104,8 +102,7 @@ The number of clients is problematic. When your server holds a thread for every 
   </figcaption>
 </figure>
 
-It is like long-polling, but the server will push responses to the same connection multiple times. The connection is reused for more messages.
-It can be done by creating an XHR request and registering a handler.
+Streaming is similar to long polling, except that the server pushes several responses over the same connection, so it can be reused for more messages. You can do this by creating an XHR request and registering a handler.
 
 ```javascript
 xmlhttp.onreadystatechange = function() {
@@ -116,16 +113,16 @@ xmlhttp.onreadystatechange = function() {
 }
 ```
 
-The server will respond with some data structure that can be deserialized. Data may be received in chunks. The program has to demultiplex and fire an event to the application when the whole message is received.
+The server responds with a data structure that can be deserialized. Since the data may arrive in chunks, the program has to demultiplex it and fire an event to the application once a whole message has been received.
 
-* This does not work in IE :( - IE does not return chunks, only the whole message when the connection is closed. This can be hacked, but it is trickier. You can bend IE by sending back JSONP - script tags with JavaScript and JavaScript can be executed on the fly in an iframe. You can read more [here](https://meteorserver.org/browser-techniques/) and [here](http://cometdaily.com/2007/11/18/ie-activexhtmlfile-transport-part-ii/).
+* This does not work in IE :( because it returns only the whole message after the connection closes, not individual chunks. You can work around this, but it is trickier. One option is to bend IE by sending back JSONP: script tags with JavaScript that can run on the fly in an iframe. You can read more [here](https://meteorserver.org/browser-techniques/) and [here](http://cometdaily.com/2007/11/18/ie-activexhtmlfile-transport-part-ii/).
 
 
 ## Transport: HTML 5 API
-Previous techniques were mostly hacks. They bend browsers in a manner they were never meant to be used in. From the beginning HTTP was considered to be a one-way protocol and now we need to make it a two-way protocol. The preceding solutions work on all browsers but they do not work as we would like. HTML 5 comes to help. It brings a JavaScript API to make comet easier to implement.
+The previous techniques were mostly hacks that bend browsers in ways they were never meant to be used. HTTP was designed as a one-way protocol, and now we need it to work both ways. These solutions run in all browsers, but they do not work as well as we would like. HTML 5 comes to the rescue with a JavaScript API that makes comet easier to implement.
 
 ### API: Event Sourcing
-It is [standardized streaming](https://web.dev/articles/eventsource-basics). The client pulls and the server pushes messages to the same connection.
+This is [standardized streaming](https://web.dev/articles/eventsource-basics). The client pulls, and the server pushes messages over the same connection.
 ```javascript
 if (!!window.EventSource) {
   var source = new EventSource('stream.php');
@@ -143,7 +140,7 @@ source.addEventListener('add', function(e) {
   }
 }, false);
 ```
-The browser handles the connection - when the connection is closed, the browser automatically reconnects.
+The browser manages the connection and automatically reconnects when it closes.
 
 ### API: Websockets
 
@@ -154,7 +151,7 @@ The browser handles the connection - when the connection is closed, the browser 
   </figcaption>
 </figure>
 
-After 20 years of web evolution we have finally realized that we need to rediscover what we already had in C for a long time - sockets. There is no extra magic. The client pulls for changes, the server parses headers and uses the TCP connection directly. This connection is bidirectional. It is a TCP socket for the web.
+After 20 years of web evolution, we have finally realized that we need what C has had for a long time: sockets. There is no extra magic here. The client asks for an upgrade, the server parses the headers, and from then on both sides use the TCP connection directly. The connection is bidirectional, essentially a TCP socket for the web.
 
 ```javascript
 var connection = new WebSocket('ws://go.to/stream');
@@ -177,7 +174,7 @@ connection.onmessage = function (e) {
 
 > RFC 2616: A single-user client should not maintain more than 2 connections with any server or proxy. 
 
-Every browser has a limit on how many parallel connections it can establish. Therefore comet is often implemented with a single connection to the server and all messages are multiplexed over this single connection. If more than the limit are used, a request will simply wait until some connection is freed. This can bring unwanted lags.
+Every browser limits how many parallel connections it can open. That is why comet is often implemented with a single connection to the server, with all messages multiplexed over it. If you go over the limit, a request simply waits until a connection is free, which can cause unwanted lag.
 
 <figure>
   <img src="parallel_connections.png" alt="Browser logos with their parallel connection limits: Firefox 6, Chrome 7, Safari 6, Opera 4, Internet Explorer 6." >
@@ -188,7 +185,7 @@ Every browser has a limit on how many parallel connections it can establish. The
 
 
 #### Server side
-In the world of Java, comet was properly introduced by Servlet 3.0. It brings the possibility to do comet without hacks via a standard API.
+In the Java world, Servlet 3.0 properly introduced comet, making it possible to implement without hacks through a standard API.
 ```java
 @WebServlet(
   name="myServlet", 
@@ -215,8 +212,11 @@ public class MyServlet extends HttpServlet {
 }
 ```
 
-The API is pretty simple. You mark the servlet to support long requests (asyncSupported=true). You create an AsyncContext from the request. You store it somewhere in memory. The doGet method is non-blocking. It finishes properly but the socket is still open. When an event occurs you pick up the context and write the response as for a usual request.
+The API is pretty simple. You mark the servlet as supporting long requests (asyncSupported=true), create an AsyncContext from the request and store it somewhere in memory. The doGet method does not block: it finishes normally, but the socket stays open. When an event occurs, you pick up the context and write the response as you would for a normal request.
 
 ### Web applications are evolving.
-From simple HTML pages to single page applications. Applications became more social, more user friendly, more useful. Comet is a part of the paradigm shift that brings web applications to a new level even though HTTP was not designed for it. A lot of people have realized it. The web is no longer a static set of CSS and HTML. It is a means to easily deliver apps to users written on a single platform. It does not matter whether you are using Linux, Windows, Mac, Android, iOS. You can run your apps on all of those systems, written once in JavaScript. Many have tried before but failed: Java Applets, Adobe Flash, Microsoft Silverlight.
-To be honest, the current state of web programming is far from ideal. Making something cross-browser is a pain. Not all browsers support HTML 5 fully now, but all browsers make an effort to do so. This brings less hacking and more focus on business value.
+We have moved from simple HTML pages to single-page applications, and applications have become more social, more user-friendly and more useful. Comet is part of the paradigm shift taking web applications to a new level, even though HTTP was not designed for it. Many people have already realized this.
+
+The web is no longer a static set of CSS and HTML. It has become an easy way to deliver apps written for a single platform. Whether you use Linux, Windows, Mac, Android or iOS, you can run the same apps, written once in JavaScript. Many have tried this before and failed: Java Applets, Adobe Flash, Microsoft Silverlight.
+
+To be honest, web programming today is far from ideal, and making something work across browsers is a pain. Not all browsers fully support HTML 5 yet, but all of them are working towards it. That means less hacking and more focus on business value.

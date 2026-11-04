@@ -7,18 +7,20 @@ summary: ""
 tags: ["soft skills", "people", "politics"]
 ---
 
-There is always one big obstacle in software development. Developers themselves.
+Software development always has one big obstacle: developers themselves.
 
-First you will realize that your team is not composed of top programmers. You will find out that there are numerous programmers with hard-coded way of doing things and OOP is for them a new way of doing their job. And they are not used to it. They are smart, they love statics and they love them very much. And if you are not careful and you listen to them too much your code will turn into one monolithic rock that is a pain to maintain, because everything is bound to everything via static references. Every change is harder and harder and the time will inevitably come when its heaviness will crush your project into the abyss.
+First, you will realize that your team is not made up entirely of top programmers. Many have a hard-coded way of doing things, and object-oriented programming is still new and unfamiliar to them. They are smart, and they love statics very much.
 
-Secondly, when you work with someone, it is important to have some code conventions. Now comes the hard part. Programmers are really selfish people and it is hard to persuade them to use the same coding standards. They do not like it. They will argue that they will make it much faster their way. This problem is similar to building a dog-kennel:
+If you are not careful and listen to them too much, your code will turn into one monolithic rock. Everything becomes bound to everything else through static references, and the code becomes a pain to maintain. Each change is harder than the last, until inevitably the weight of it all drags your project into the abyss.
+
+Second, anyone working together needs code conventions, and this is where it gets hard. Programmers can be really selfish, and it is hard to persuade them to follow common standards. They dislike the idea and argue that they would be much faster their own way. This problem resembles building a dog kennel:
 
 > When politicians are approving a nuclear plant, it is decided in minutes. Nobody really knows how that complicated atom-splitting force works, so the plan will be approved without objections. But then they have to make a judgement on a dog-kennel placed in front of it. They will not agree in decades. Because everyone has a different opinion about the proper colour.
 
-Before introducing any new technology you have to have overall agreement, to prevent two or multiple coding standards. At least try it :)
+Before introducing any new technology, try to get everyone to agree on it, so that you do not end up with two or more competing coding standards. At least try :)
 
-Third. Developers are messy and make tons of crap code. Every time I see this, the reason is most of the time the same. Then I always remember one story from Bob Martin's speech at QCon.
+Third, developers are messy and produce tons of crap code, and the reason is nearly always the same. Whenever I see this, I remember a story from Bob Martin's talk at QCon.
 
 > When we were young, 9 years old, we had a system for our bedroom: “somewhere on the floor”. Underwear was somewhere on the floor. Then we easily found it. Socks were somewhere on the floor, under the bed. We found them because we had a good system. We knew where things were - somewhere on the floor. Then our mum came in. She started to clean the room out of sheer frustration because there was no way for a 9-year-old to know what the concept of order means. This does not change till you get 30 and get married. And then you realize when 2 people are using the same space, the system does not work so perfectly.
 
-I personally consider relations between people the hardest part of programming. To make your project done you have to be sometimes loving and caring mother or sometimes ruthless dad when there are no other options. You have to find a way to all members of your team. Find the problem that blocks them from doing their task and solve it. Otherwise it harms your project, your goals, your business.
+Personally, I consider relationships between people the hardest part of programming. To get a project done, you sometimes have to be a loving, caring mother, and sometimes, when there are no other options, a ruthless dad. You have to find a way to reach every member of your team, find out what is blocking them and solve it. Otherwise, it will hurt your project, your goals and your business.

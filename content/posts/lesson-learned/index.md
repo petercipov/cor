@@ -7,19 +7,19 @@ summary: ""
 tags: ["soft skills", "people", "engineering"]
 ---
 
-One of many things that I had to learn when I graduated from college was to get things done. I do not say that I had no successful projects before, but I spent a lot of time searching for the best way.
+One of the many things I had to learn after graduating from college was how to get things done. I had completed successful projects before, but I spent far too much time searching for the best way to do them.
 
-I had a habit of figuring out what technology to use before I had my use-cases. It is a kind of habit of programmers that they like to make their own frameworks for the things they do. They glue together some set of classes and they are eager to use them everywhere.
+I had a habit of choosing technologies before I even knew my use cases. Programmers often like to build their own frameworks: they glue together a set of classes and are then eager to use them everywhere.
 
-They tend to use other frameworks that are popular in the community. Actually they use tons of them. It is not bad as long as you can clearly answer what problem they solve, what are the positives and what slows you down. Without these answers it is only blind religion and then inevitably comes the time when you will bend your code because of framework limitations.
+They also tend to adopt popular frameworks from the community, often lots of them. There is nothing wrong with that as long as you can clearly say what problem each one solves, what its benefits are and what slows you down. Without those answers, it is only blind religion, and sooner or later you will find yourself bending your code around the framework's limitations.
 
 > In the end, maybe you do not need those sexy frameworks.
 
-I had another assignment. I had to make a set of diagrams to present the dependencies and structure of a new protocol I was implementing. I spent a lot of time finding the best tool for drawing diagrams and I did not make it in time. Then I realised I did not need it at all. I just needed my whiteboard and markers to do the job fast and dirty. Then I used Inkscape for a fast sketch. The task was done in a few hours instead of days.
+Another time, I had to produce a set of diagrams showing the dependencies and structure of a new protocol I was implementing. I spent so long looking for the best diagramming tool that I missed the deadline. Then I realized that I did not need one at all. A whiteboard and markers were enough to do the job fast and dirty, followed by a quick sketch in Inkscape. The task took a few hours instead of days.
 
 > Do not try to figure out the best way because you do not see the whole picture. Just try to solve your problem.
 
-Things you know:
+There are three kinds of knowledge:
 
 1. things you know
 2. things you know that you don't know
@@ -32,4 +32,4 @@ Things you know:
   </figcaption>
 </figure>
 
-Do not try to figure out the future. We are bad at this. Focus on what is here, what is now. Base your actions on actual metrics and make decisions based on them. Reasoning with "It is good to", "I think", "I hope" is a bad practice. You can easily get stuck in a blind corner of programming religion without creating any business value. Let's face it, business value is what actually generates money that we earn.
+Do not try to predict the future, because we are bad at it. Focus on what is here and now, and base your decisions on real metrics. Reasoning with "it would be good to", "I think" or "I hope" is a bad practice. It can easily trap you in a corner of programming religion without creating any business value. And let's face it, business value is what generates the money we earn.
