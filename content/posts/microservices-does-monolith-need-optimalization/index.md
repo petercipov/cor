@@ -1,7 +1,7 @@
 ---
 title: "Microservices - Does a monolith need optimization?"
 date: 2015-04-20
-description: ""
+description: "Microservices aren't always the answer. When a simple monolith is fine, when it starts to hurt, and how to split it into smaller services."
 summary: ""
 tags: ["microservices", "assumptions"]
 ---
@@ -19,7 +19,7 @@ Most monoliths have in common:
 These are not really disadvantages of a monolith, but these situations are just very common, because it is so easy to do them. And when deadlines are near it is almost a rule to bend something, to adjust something, just to make it work!
 
 <figure>
-  <img src="monolith.png" >
+  <img src="monolith.png" alt="Graph of nodes where nearly every node is connected to every other node." >
   <figcaption>
     Example of the monolith.
   </figcaption>
@@ -52,7 +52,7 @@ Monolith in C++    -> Perl/C++   -> Java/Scala -> microservices
 All internet giants are now running clusters of micro-services. They have started as monoliths. They were written mostly in the favourite language of the company founder. In time, monoliths were rewritten into better structured monoliths and finally chopped into ecosystems of micro-services. What became important was the possibility for services to communicate easily. This was the reason for the creation of Facebook Thrift, Google Protobuf and REST. Services written in Python can easily communicate with services written in Java or C.
 
 <figure>
-  <img src="monolith-chop.png" >
+  <img src="monolith-chop.png" alt="The same tightly connected graph, with an arrow pointing to a version that has far fewer connections between nodes." >
   <figcaption>
     Example of the monolith chopping.
   </figcaption>

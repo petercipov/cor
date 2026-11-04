@@ -1,7 +1,7 @@
 ---
 title: "NO (not only) Servlet"
 date: 2013-12-27
-description: ""
+description: "A hard-to-find bug with Tomcat's async servlets corrupted our responses. What caused it, and why you may not need a servlet container at all."
 summary: ""
 tags: ["web", "transport", "java", "servlet", "rewrite", "premature optimisation", "anti patterns", "assumptions"]
 ---
@@ -49,7 +49,7 @@ This is a typical scheme of an asynchronous servlet, you can find it in every de
 
 It seems easy, simplistic, but it hides some weak points that are not visible at first sight.
 
-I was in charge of implementing a [Pub-Sub](http://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) feature in a product. So part of the application was a JSON-RPC like API, with a thread per request model, and the second one was a notifier. Servlet 3.0 API is well documented, so the first implementation was done quickly. But out of the blue responses became corrupted. Sometimes you got a response that contained a JSON response with a tiny part of some other JSON or a part of image. I spent a lot of time debugging with no result. This mistake was unfortunately occurring in production with some amount of traffic that I could not locally reproduce. In the end I wrote to Tomcat forums and I got this response:
+I was in charge of implementing a [Pub-Sub](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) feature in a product. So part of the application was a JSON-RPC like API, with a thread per request model, and the second one was a notifier. Servlet 3.0 API is well documented, so the first implementation was done quickly. But out of the blue responses became corrupted. Sometimes you got a response that contained a JSON response with a tiny part of some other JSON or a part of image. I spent a lot of time debugging with no result. This mistake was unfortunately occurring in production with some amount of traffic that I could not locally reproduce. In the end I wrote to Tomcat forums and I got this response:
 
     Did I miss some critical lesson about flushing async responses? 
     HttpServletRequest and HttpServletResponse objects 

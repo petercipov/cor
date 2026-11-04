@@ -8,6 +8,7 @@ title = "Peter Cipov"
 
 [params]
   dateFormat = "2 January 2006"
+  description = "I'm Peter Cipov, a software engineer. I write about what I've learned from building software, working with people, and losing weight."
 
 [params.author]
   name = "Peter Cipov"

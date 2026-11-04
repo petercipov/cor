@@ -18,6 +18,7 @@ enableImageWebp = true
 
 # robots = ""
 fingerprintAlgorithm = "sha256"
+images = ["img/author.jpg"]
 
 [header]
   layout = "basic" # valid options: basic, hamburger, hybrid, custom

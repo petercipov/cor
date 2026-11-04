@@ -1,7 +1,7 @@
 ---
 title: "First step to design: It is always about people"
 date: 2013-10-29
-description: ""
+description: "The hardest part of building software is often the people. Three problems I keep seeing in teams, from messy code to fights over standards."
 summary: ""
 tags: ["soft skills", "people", "politics"]
 ---

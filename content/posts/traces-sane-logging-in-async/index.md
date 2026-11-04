@@ -1,7 +1,7 @@
 ---
 title: "Traces - sane logging for asynchronous code"
 date: 2015-12-17
-description: ""
+description: "Normal logs make it hard to follow one request through async code. How traces group related messages so you can see what really happened."
 summary: ""
 tags: ["traces", "java"]
 ---
@@ -102,7 +102,7 @@ public interface Trace {
 ```
 
 <figure>
-  <img src="example_trace.png" >
+  <img src="example_trace.png" alt="JSON output of a trace: numbered events with thread names, timings and values, including a failed call with its stack trace and a successful retry." >
   <figcaption>
     Example of the trace.
   </figcaption>
@@ -117,12 +117,12 @@ On the other hand it produces a hell of a lot of data. It is a feature of traces
 In the case of high-frequency calls you can sample logging and pass NOOPTrace instead of a logging trace, and log just some percentage of them. Even such portion of data can have actual value for you. You can look for calls with high spikes. Or you can log traces only in case of exception. You would lose real-time metrics about your system but even such a trace would be more useful than a simple stack trace. It really depends on what you need from traces.
 
 ## Not a new idea at all
-This idea is not new. I did not invent it. It is just handy and straightforward and I have great experience with it when I wanted to figure out "why it does not work". It is the core idea behind Google's tracing system [Dapper](http://research.google.com/pubs/pub36356.html) and [Zipkin](https://github.com/twitter/zipkin) from Twitter. I have not used Zipkin because it is focused only on the duration of methods and I actually wanted to log some portion of data. When I was researching Zipkin it missed this important feature. To the best of my knowledge it does not have this feature today. Therefore I created a simple stupid library to do what I actually wanted. On the other hand Zipkin logging via scribe and processing via collectors is very sophisticated. I do not want to compete with it. I think developers that created it have done a great job. But for my environment it was overkill.
+This idea is not new. I did not invent it. It is just handy and straightforward and I have great experience with it when I wanted to figure out "why it does not work". It is the core idea behind Google's tracing system [Dapper](https://research.google/pubs/dapper-a-large-scale-distributed-systems-tracing-infrastructure/) and [Zipkin](https://github.com/twitter/zipkin) from Twitter. I have not used Zipkin because it is focused only on the duration of methods and I actually wanted to log some portion of data. When I was researching Zipkin it missed this important feature. To the best of my knowledge it does not have this feature today. Therefore I created a simple stupid library to do what I actually wanted. On the other hand Zipkin logging via scribe and processing via collectors is very sophisticated. I do not want to compete with it. I think developers that created it have done a great job. But for my environment it was overkill.
 
 In my case I used tracing for an application written with RxJava. The code was mostly written in a functional style. Business logic consists of sequences of timers and waiting for responses from different services. It is highly asynchronous code. Before traces, when something had failed, it was nearly impossible to reason why. There was no complete flow, just a stack trace from an executor thread. And this is the core idea, tracing is in some manner your custom stack with reasonable params, it just depends on you what is put inside and it is passed during whole execution of single request.
 
 <figure>
-  <img src="async.png" >
+  <img src="async.png" alt="Hand-drawn sequence diagram of IO, worker and timer threads passing watch, set, timeout and fire-watch messages." >
   <figcaption>
     Example of the flow.
   </figcaption>
@@ -141,7 +141,7 @@ There is a simple rule for what to trace and what not. Trace something, that has
 ## Are traces distributed?
 Simply yes and no :) You have to make them distributed.
 <figure>
-  <img src="distributed.png" >
+  <img src="distributed.png" alt="Hand-drawn diagram of a POST request going to a balancer node (1), then a processing node (2), then a cluster of Cassandra nodes (3)." >
   <figcaption>
     Distributed trace.
   </figcaption>

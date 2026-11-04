@@ -1,7 +1,7 @@
 ---
 title: "I have deleted my Facebook account, what now"
 date: 2018-06-08
-description: ""
+description: "Why I left Facebook over privacy, and how I set up my own chat server with Matrix to stay in touch with family and friends."
 summary: ""
 tags: ["messaging", "element.io"]
 ---
@@ -69,7 +69,7 @@ Matrix natively supports end-to-end encryption [1, 2]. It can be set up per room
 Matrix is a protocol. It provides a back-end reference implementation written in Python and there already exist multiple front-ends. Of those I like Riot.im the most: it can be installed natively on iOS and Android or used as an Electron-based desktop app or as a standalone single-page web app.
 
 <figure>
-  <img src="element.png" >
+  <img src="element.png" alt="Two phone screenshots of the chat app: a home screen with rooms and people, and a group conversation." >
   <figcaption>
     Element.IO user interface.
   </figcaption>

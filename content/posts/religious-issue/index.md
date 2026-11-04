@@ -1,7 +1,7 @@
 ---
 title: "Religious issue: The best programming language"
 date: 2013-11-17
-description: ""
+description: "There is no best programming language. Why the right choice depends on the job you need to do, with JavaScript and Node.js as the example."
 summary: ""
 tags: ["engineering", "languages", "assumptions"]
 ---
@@ -10,7 +10,7 @@ What is the best programming language? I have spent many hours in this endless d
 Today the sexiest language is JavaScript & Node.js platform. Tons of new projects are popping up like a fresh breeze. The new zeitgeist is "all in JavaScript". It is easy, it is fast and event-loop will redeem your project. You write your client/server code in a single language. So from now you just need JavaScript coders.
 
 <figure>
-  <img src="github_languages.png" >
+  <img src="github_languages.png" alt="Line chart of new GitHub repositories by language from 2008 to 2013, with JavaScript rising to the top ahead of Ruby and Java." >
   <figcaption>
     Github repositories language chart.
   </figcaption>

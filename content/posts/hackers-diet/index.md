@@ -1,7 +1,7 @@
 ---
 title: "Hacker's Diet"
 date: 2023-11-23
-description: ""
+description: "I was over 130 kg and lost 50 kg by eating once a day on a low-carb diet. How I did it, what went wrong before, and how I kept it off."
 summary: ""
 tags: ["diet", "lifestyle"]
 ---
@@ -16,7 +16,7 @@ So I started with the gold standard "eat less and move more" strategy. I picked 
 With a couple of kilos down I could finally start doing other sports that I used to do. I started with running. I never liked sprints but I like endurance sports. I started slowly with 3km, 4km, and ended up with a regular 8km run after a few months. I also continued with swimming. It was actually very powerful combo and it started to be very, VERY visible.
 
 <figure>
-  <img src="./visible.jpg" >
+  <img src="./visible.jpg" alt="Peter smiling in an England football shirt, holding out the waistband of his old, far too big pajama pants." >
   <figcaption>
     My old pajama pants ended up as a floor rag.
   </figcaption>
@@ -38,7 +38,7 @@ The nail in the coffin was COVID-19 and lockdown. I stayed at my home office for
 Later I had to pick my old oversized clothes from an old box and put my lean shirts back into the box with a groan that one day I would take them back. I was depressed, I was feeling like a complete failure... I knew I needed to lose weight, change something but at that time I did not know where to start. As many obese people like me I was clueless. I had the determination to change, as I have been a fighter since childhood, but I felt so powerless.
 
 <figure>
-  <img src="./139.jpg" >
+  <img src="./139.jpg" alt="Selfie of Peter with a full dark beard, when he weighed over 130 kg." >
   <figcaption>
     Me, over 130kg.
   </figcaption>
@@ -49,7 +49,7 @@ Then something totally unexpected happened ... I got lucky in my life.
 The YouTube news feed algorithm showed me a video of the American doctor Dr. Pradip Jamnadas giving a lecture about intermittent fasting and the ketogenic diet. In a nutshell his advice was to eat once a day, on a low-carb diet specifically triggering your ketone bodies. It should help you decrease weight just by changing what you eat. For sure he was a quack, I thought. Nevertheless he said you can easily measure ketones in your morning urine, just buy a urine strip at a pharmacy. So I gave it a try. I bought a strip and ate once a day (a confit duck for starters :)). The next morning I sampled my urine and I could measure a decent amount of ketones.
 
 <figure>
-  <img src="./ketones.jpg" >
+  <img src="./ketones.jpg" alt="Urine test strip with six coloured squares, with the numbers 1.5 and 16 handwritten below it." >
   <figcaption>
     A decent number of ketone bodies in my urine, measured on the first day of the diet by a urine strip.
   </figcaption>
@@ -59,7 +59,7 @@ The YouTube news feed algorithm showed me a video of the American doctor Dr. Pra
 It worked! I was so amazed with this small success. It gave me a kick to continue eating once a day for the next months. And I did not know how deep this rabbit hole was and where it would end up. I continued to fast for the next 7 months and I lost 50kg without any heavy workout, without going to the gym (closed because of the pandemic), mostly sitting in a chair at my home office, working in the garden and losing weight. It fit what I could do during COVID and it worked perfectly.
 
 <figure>
-  <img src="./back.jpg" >
+  <img src="./back.jpg" alt="Bare feet on a bathroom scale showing about 90 kg." >
   <figcaption>
     From 138kg back to 90kg after 7 months of fasting.
   </figcaption>
@@ -72,7 +72,7 @@ Is there any continuation to this? Actually ... there is.
 I was so amazed that this was possible that I spent all of my time during COVID chasing down this rabbit hole. My wife also joined the research along the way. She is an MD and she was also surprised. Actually nutrition was not a subject in the MD curriculum when she attended university. We read scientific papers and learned a ton more. Most of the papers are current research and there is so much more science in fasting than just getting hungry. One of the effects is that your body will decrease secretion of ghrelin and neuropeptide Y that leads to less hunger, less cravings, less calories in. Second is that during a ketogenic diet insulin drops to levels where your body starts to prefer burning fat over everything else. Low insulin spikes inhibit cravings for food. Very convenient when you want to effectively lose 50kg!
 
 <figure>
-  <img src="./weightloss.png" >
+  <img src="./weightloss.png" alt="Chart of daily weight falling steadily from about 137 kg to 90 kg between July 2021 and early 2022, with ketone readings that are mostly high." >
   <figcaption>
     Blue dots - my weight. Caloric restriction (eating once a day, fully) and a ketogenic diet did the trick. Red dots - ketone bodies. I sampled data nearly every day.
   </figcaption>
@@ -98,7 +98,7 @@ My journey continues ... ⛵
 Peter
 
 <figure>
-  <img src="./back_running.jpg" >
+  <img src="./back_running.jpg" alt="Peter crouching next to his young daughter at a running event, both smiling and holding a hand-painted sign." >
   <figcaption>
     I am back and running! With my daughter Elis.
   </figcaption>
