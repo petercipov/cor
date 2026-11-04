@@ -2,6 +2,7 @@
 title: "Traces - sane logging for asynchronous code"
 date: 2015-12-17
 description: "Normal logs make it hard to follow one request through async code. How traces group related messages so you can see what really happened."
+featureAlt: "Painting of a glowing orange sunset over water and distant buildings."
 summary: ""
 tags: ["traces", "java"]
 ---

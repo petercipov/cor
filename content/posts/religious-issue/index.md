@@ -2,6 +2,7 @@
 title: "Religious issue: The best programming language"
 date: 2013-11-17
 description: "There is no best programming language. Why the right choice depends on the job you need to do, with JavaScript and Node.js as the example."
+featureAlt: "Old drawing of a woman holding a child, with other figures beside her."
 summary: ""
 tags: ["engineering", "languages", "assumptions"]
 ---

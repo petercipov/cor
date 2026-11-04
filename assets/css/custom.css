@@ -1,0 +1,7 @@
+.feature-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-block: 1.5rem 2rem;
+  border-radius: 6px;
+}

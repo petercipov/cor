@@ -2,6 +2,7 @@
 title: "Comet: trendy and hairy"
 date: 2013-12-27
 description: "How websites send live updates, like chat messages, to your browser. A look at polling, long polling, streaming and WebSockets."
+featureAlt: "Painting of a smoky train station under a glass roof."
 summary: ""
 tags: ["web", "transport"]
 ---

@@ -2,6 +2,7 @@
 title: "NO (not only) Servlet"
 date: 2013-12-27
 description: "A hard-to-find bug with Tomcat's async servlets corrupted our responses. What caused it, and why you may not need a servlet container at all."
+featureAlt: "Painting of a small boat on hazy water at sunrise."
 summary: ""
 tags: ["web", "transport", "java", "servlet", "rewrite", "premature optimisation", "anti patterns", "assumptions"]
 ---

@@ -2,6 +2,7 @@
 title: "I have deleted my Facebook account, what now"
 date: 2018-06-08
 description: "Why I left Facebook over privacy, and how I set up my own chat server with Matrix to stay in touch with family and friends."
+featureAlt: "Painted portrait of a red-bearded man in a blue jacket with a crowd of people behind him."
 summary: ""
 tags: ["messaging", "element.io"]
 ---
