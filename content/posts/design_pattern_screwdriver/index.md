@@ -1,7 +1,7 @@
 ---
 title: "Design Pattern: Screwdriver"
 date: 2014-11-27
-description: ""
+description: "Why smart developers stick with the wrong tools, and what the Dunning-Kruger effect taught me about working with them."
 summary: ""
 tags: ["soft skills", "people", "engineering", "assumptions"]
 ---
@@ -10,7 +10,7 @@ Programming is not entirely about coding, design and architecture. A great deal 
 
 One of the common problems you can encounter is the problem of a screwdriver. You have to attach the shelf with hex screws, but you do not own a proper screwdriver. What would you do? Would you use an improper one? No, you would go to the shop and obtain a proper one. It is logical.
 
-But often you have to deal with something different. You have a bunch of programmers that do not see why you need this different solution when the "improper" screwdriver worked just fine yesterday. You are trying to explain why, but it is not accepted, for many odd reasons, like "I don't believe it will work better". Of course there are many reasonable [problems with new technology](http://techblog.netflix.com/2014/11/nodejs-in-flames.html), you have to mitigate risk beforehand. But sometimes the problem is not in technology or business but in people themselves, more precisely in their egos.
+But often you have to deal with something different. You have a bunch of programmers that do not see why you need this different solution when the "improper" screwdriver worked just fine yesterday. You are trying to explain why, but it is not accepted, for many odd reasons, like "I don't believe it will work better". Of course there are many reasonable [problems with new technology](https://medium.com/netflix-techblog/node-js-in-flames-ddd073803aa4), you have to mitigate risk beforehand. But sometimes the problem is not in technology or business but in people themselves, more precisely in their egos.
 You silently say jeeesh, and fight your struggle because you know where it would end otherwise. You would cripple a screw. And any future change will be nearly impossible.
 
 If you like your job, you would definitely avoid this even though you would become the black sheep. Your main motivation is the product itself. You know that any change to a dilettante design would be costly and drastic, therefore it is impossible to get rid of it completely. Making change hard is the guaranteed path of doom.
@@ -21,9 +21,9 @@ I have encountered this "back-pressure" numerous times with TDD, but the absolut
 
 And I have seen this nearly everywhere where something (framework, library, tooling) was developed for some time. The lack of will to change favourite tools to proper ones, fitting the current situation better.
 
-> For several years I was the lone C programmer in that company. I thought that everybody should be programming in C. But I could not convince any of my brethren to start programming in C. Does anybody have that problem? With something like test driven development or agile practices? The most common questions that people would ask me when I do lecture on TDD, is how can I convince anybody else to do this. And the answer to this question is you can not. [Robert Martin](http://www.infoq.com/presentations/clojure-c)
+> For several years I was the lone C programmer in that company. I thought that everybody should be programming in C. But I could not convince any of my brethren to start programming in C. Does anybody have that problem? With something like test driven development or agile practices? The most common questions that people would ask me when I do lecture on TDD, is how can I convince anybody else to do this. And the answer to this question is you can not. [Robert Martin](https://www.infoq.com/presentations/clojure-c)
 
-Somehow I could not understand why such smart people are able to make such bad decisions. The journey for this answer has taken me far from my domain of expertise, which is programming, to psychology, namely to the [Dunning-Kruger effect](http://en.m.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect).
+Somehow I could not understand why such smart people are able to make such bad decisions. The journey for this answer has taken me far from my domain of expertise, which is programming, to psychology, namely to the [Dunning-Kruger effect](https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect).
 
 Their initial test study was the case of bank robber McArthur Wheeler:
 
@@ -36,7 +36,7 @@ In their famous paper [Unskilled and unaware of it](./paper.pdf)  they argued th
 > People are incompetent in the strategies they adopt to achieve success and satisfaction, they suffer a dual burden: Not only do they reach erroneous conclusions and make unfortunate choices, but their incompetence robs them of the ability to realize it.
 
 <figure>
-  <img src="duning.png" >
+  <img src="duning.png" alt="Line chart of estimated and actual scores by quartile: estimates stay nearly flat while actual scores rise steeply from bottom to top." >
   <figcaption>
     Top performers underestimate themselves, under performers overestimate their competence.
   </figcaption>

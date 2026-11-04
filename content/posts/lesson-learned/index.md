@@ -1,7 +1,7 @@
 ---
 title: "Lesson learned: Do your job instead of looking for the best way."
 date: 2013-11-06
-description: ""
+description: "I used to spend too long looking for the perfect tool. What I learned about solving the problem in front of you and getting things done."
 summary: ""
 tags: ["soft skills", "people", "engineering"]
 ---
@@ -25,7 +25,7 @@ Things you know:
 3. things you don't know that you don't know
 
 <figure>
-  <img src="things_you_know.png" >
+  <img src="things_you_know.png" alt="Pie chart where slice 3, things you don't know that you don't know, fills almost the whole circle, leaving thin slices for 1 and 2." >
   <figcaption>
     This picture displays the normal order of knowledge we possess.
   </figcaption>
